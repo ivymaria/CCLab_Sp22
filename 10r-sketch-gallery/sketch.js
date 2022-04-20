@@ -1,127 +1,180 @@
-let colors = ["PeachPuff", "Khaki", "Gold", "Orange", "Tomato"];
-
-let bodyColor;
-let eyesColor;
-let detailColor;
-let detailColor2;
+let page = 0;
+let freq;
+//for last page
+let colors = ["#b3ffcd", "#e5c9ff", "#b3d6ff", "#ffd4c4", "#fff7c4", "#c9fffa"];
+let buttons = [];
 
 function setup() {
-  createCanvas(600, 600);
-  //background("#2F9599");
-  //textAlign(CENTER, BOTTOM)
+  createCanvas(windowWidth, windowHeight);
+  background("#a9aaeb");
+  colorMode(HSB);
+  textAlign(CENTER);
 
-  randomIndex = floor(random(colors.length));
-  bodyColor = colors[randomIndex];
-  detailColor = colors[randomIndex];
-  detailColor2 = colors[4];
-  eyesColor = "Black";
+  //for last page
+  /*
+  for (let i = 0; i < colors.length; i++) {
+    let x = random(width);
+    let y = random(height);
+    let dia = random(50, 100);
+    let clr = colors[i];
+    buttons.push(new Button(x, y, dia, clr));
+  }
+  */
+  
+  for (let i = 0; i < 30; i++) {
+    let x = random(width);
+    let y = random(height);
+    let dia = random(50, 100);
+    
+    let randomIndex = floor(random(colors.length));
+    let clr = colors[randomIndex];
+    buttons.push(new Button(x, y, dia, clr));
+  }
 }
 
 function draw() {
-  background("#2F9599");
-  text("Click mouse to changle color", 225, 575);
-  let randomIndex = floor(random(colors.length));
-  if (mouseIsPressed) {
-    randomIndex = floor(random(colors.length));
-
-    bodyColor = colors[randomIndex];
-    detailColor = colors[randomIndex];
+  if (page == 0) {
+    drawPage0();
+  } else if (page == 1) {
+    drawPage1();
+  } else if (page == 2) {
+    drawPage2();
+  } else if (page == 3) {
+    drawPage3();
   }
-  push();
-  drawCreature(mouseX, mouseY);
-  pop();
-
-  drawClouds(50, 75);
-  drawClouds(400, -20);
-  drawClouds(50, 275);
-  drawClouds(-375, 175);
 }
 
-function drawCreature(x, y) {
-  translate(x, y);
-  drawFace(0, 0);
-  drawEyes(-40, -30);
-  drawDetail(0, 0);
-  drawDetail2(0, 0);
+function mousePressed() {
+  // change the page
+  page = page + 1;
+
+  if (page > 3) {
+    page = 3;
+  }
+
+  // based on the new page, you draw background once!
+  if (page == 0) {
+    //
+  } else if (page == 1) {
+    background("#a9aaeb");
+  }
 }
 
-function drawFace(x, y) {
-  push();
-  translate(x, y);
+function drawPage0() {
+  background("#fdffbf");
+  fill("#a9aaeb");
+  textFont("PlayfairDisplay");
+  textSize(20);
+  text(
+    "feelings come and go like clouds in a windy sky",
+    width / 2,
+    height / 2
+  );
+  text("conscious breathing is my anchor", width / 2, height / 2 + 25);
+  text(" - Thich Nhat Hanh", width / 2, height / 2 + 50);
+  text(
+    "click mouse to try each experience when ready",
+    width / 2,
+    height / 2 + 300
+  );
+}
 
-  fill(bodyColor);
+function drawPage1() {
+  freq = frameCount * 0.01;
+  let dia = map(sin(freq), -1, 1, 0, 600);
+
+  freq = frameCount * 0.02;
+  let hue = map(sin(freq), -1, 1, 225, 90);
+
+  noFill();
+  strokeWeight(20);
+  stroke(hue, 25, 100);
+  circle(width / 2, height / 2, dia);
+
   noStroke();
-  ellipse(0, 0, 175, 175);
-  stroke(0);
-  strokeWeight(5);
-  arc(0, 25.2, 70, 50, 2 * PI, PI);
-  fill("lightPink");
-  noStroke();
-  ellipse(-50, 0, 20, 10);
-  ellipse(+50, 0, 20, 10);
-  pop();
+  fill("#fdffbf");
+  textFont("PlayfairDisplay");
+  textSize(20);
+  text("inhale as the circle expands", width / 2, height / 2 - 325);
+  text("exhale as the circle contracts", width / 2, height / 2 + 325);
 }
 
-function drawEyes(x, y) {
-  push();
-  translate(x, y);
-
-  fill(eyesColor);
-  ellipse(0, 0, 20, 25);
-  ellipse(+78, 0, 20, 25);
-  fill(255);
-  ellipse(3, -4, 5, 10);
-  ellipse(+81, -4, 5, 10);
-  pop();
+function drawPage2() {
+  background("#b3ffcd");
+  fill("#ffb8c5");
+  textFont("PlayfairDisplay");
+  textSize(20);
+  text(
+    "in these next moments release the urge to control",
+    width / 2,
+    height / 2
+  );
+  text("interact, experience, and stay grounded", width / 2, height / 2 + 25);
+  text(
+    "click mouse to try next experience when ready",
+    width / 2,
+    height / 2 + 300
+  );
 }
 
-function drawDetail(x, y) {
-  fill(detailColor);
-  push();
-  translate(x, y);
-  noStroke();
-  fill(detailColor);
-  ellipse(-135, 0, 145, 20);
-  ellipse(+135, 0, 145, 20);
-  ellipse(0, -135, 20, 145);
-  ellipse(0, +135, 20, 145);
-  pop();
+function drawPage3() {
+  colorMode(RGB);
+  background(255, 184, 197, 15);
+  // background("#ffb0be");
+  fill("#fffff");
+  textFont("PlayfairDisplay");
+  textSize(20);
+  text("stay present", width / 2, height / 2);
+
+  // update & display the objects
+  for (let i = 0; i < buttons.length; i++) {
+    let b = buttons[i]; // each object
+    b.move();
+    b.checkMouse();
+    b.checkEdges();
+    b.display();
+  }
 }
 
-function drawDetail2(x, y) {
-  fill(detailColor2);
-  push();
-  translate(x, y);
-  noStroke();
-  fill(detailColor2);
-  push();
-  rotate(PI / 3.5);
-  ellipse(-165, 20, 164, 20);
-  pop();
-  push();
-  rotate(PI / -3.5);
-  ellipse(+165, 20, 164, 20);
-  pop();
-  push();
-  rotate(PI / -3.5);
-  ellipse(-165, -10, 164, 20);
-  pop();
-  push();
-  rotate(PI / 3.5);
-  ellipse(+165, -10, 164, 20);
-  pop();
-  pop();
-}
-
-function drawClouds(x, y) {
-  translate(x, y);
-  push();
-  noStroke();
-  fill("Lavender");
-  rect(-10, -10, 80, 43);
-  ellipse(-10, 15, 35, 35);
-  ellipse(10, 0, 45, 45);
-  ellipse(50, 0, 60, 60);
-  ellipse(70, 12, 40, 40);
-  pop();
+class Button {
+  constructor(x, y, rad, clr) {
+    this.x = x;
+    this.y = y;
+    this.xSpd = random(-0.5, 0.5);
+    this.ySpd = random(-0.5, 0.5);
+    this.rad = rad;
+    this.color = clr;
+  }
+  move() {
+    this.x += this.xSpd;
+    this.y += this.ySpd;
+  }
+  checkMouse() {
+    let distance = dist(this.x, this.y, mouseX, mouseY);
+    if (distance < this.rad) {
+      if (mouseIsPressed) {
+        this.xSpd = random(-1.5, 1.5);
+        this.ySpd = random(-1.5, 1.5);
+      }
+    } 
+  }
+  checkEdges() {
+    if (this.x < 0 - this.rad) {
+      this.x = width + this.rad;
+    } else if (this.x > width + this.rad) {
+      this.x = 0 - this.rad;
+    }
+    if (this.y < 0 - this.rad) {
+      this.y = height + this.rad;
+    } else if (this.y > height + this.rad) {
+      this.y = 0 - this.rad;
+    }
+  }
+  display() {
+    push();
+    noStroke();
+    fill(this.color);
+    circle(this.x, this.y, this.rad * 2);
+    pop();
+  }
 }
