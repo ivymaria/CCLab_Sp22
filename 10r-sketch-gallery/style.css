@@ -1,0 +1,16 @@
+body {
+    background-color: hsl(62, 100%, 87%);
+    position: absolute;
+    left: 200px;
+    top: 20px;
+}
+
+.intro {
+    text-align: center;
+    width: 1000px;
+    height: 100px;
+    }
+
+.title {
+    text-align: center;
+}

@@ -1,11 +1,11 @@
 let page = 0;
 let freq;
 //for last page
-let colors = ["#b3ffcd", "#e5c9ff", "#b3d6ff", "#ffd4c4", "#fff7c4", "#c9fffa"];
+let colors = ["#b3ffcd", "#e5c9ff", "#b3d6ff", "#ffd4c4", "#fdffbf", "#c9fffa"];
 let buttons = [];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(700, 700);
   background("#a9aaeb");
   colorMode(HSB);
   textAlign(CENTER);
@@ -41,15 +41,18 @@ function draw() {
     drawPage2();
   } else if (page == 3) {
     drawPage3();
-  }
+  } else if (page == 3)
+  drawPage0();
 }
 
-function mousePressed() {
+function keyPressed() {
   // change the page
-  page = page + 1;
+  if (keyCode === 32) {
+    page = page + 1; 
+  }
 
-  if (page > 3) {
-    page = 3;
+ if (page > 3) {
+  page = 0;
   }
 
   // based on the new page, you draw background once!
@@ -58,7 +61,7 @@ function mousePressed() {
   } else if (page == 1) {
     background("#a9aaeb");
   }
-}
+ }
 
 function drawPage0() {
   background("#fdffbf");
@@ -73,7 +76,7 @@ function drawPage0() {
   text("conscious breathing is my anchor", width / 2, height / 2 + 25);
   text(" - Thich Nhat Hanh", width / 2, height / 2 + 50);
   text(
-    "click mouse to try each experience when ready",
+    "click space to try each experience when ready",
     width / 2,
     height / 2 + 300
   );
@@ -111,7 +114,7 @@ function drawPage2() {
   );
   text("interact, experience, and stay grounded", width / 2, height / 2 + 25);
   text(
-    "click mouse to try next experience when ready",
+    "click space to try next experience when ready",
     width / 2,
     height / 2 + 300
   );
