@@ -7,8 +7,9 @@ canvas {
   display: block;
 }
 
-#my-Water {
+#my-water {
   position: absolute;
-  left: 100px;
-  top: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

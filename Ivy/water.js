@@ -1,6 +1,6 @@
 let bubbles = [];
 function setup() {
-  let canvas = createCanvas(600, 600);
+  let canvas = createCanvas(500, 500);
   canvas.parent("my-water");
 
   for (let i = 0; i < 200; i++) {
