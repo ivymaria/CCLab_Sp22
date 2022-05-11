@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+canvas {
+  display: block;
+}
+
+#my-Earth {
+  position: absolute;
+  left: 100px;
+  top: 300px;
+}
