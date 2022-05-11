@@ -6,6 +6,7 @@ html, body {
 
 canvas {
   display: block;
+  z-index: 10;
 }
 
 #my-fire {
@@ -20,4 +21,38 @@ button {
   width: 100px;
   height: 50px;
   border: 0px;
+  
+  z-index: 100;
+  
+  position: absolute;
+  right: 5%;
+  top: 5%;
+
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 20px;
+}
+/* unvisited link */
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color:coral;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: white;
+  text-decoration: none;
 }
