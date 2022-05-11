@@ -1,5 +1,42 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+  color: aliceblue;
+}
+
+.text-container {
+  /* background-color: aqua; */
+  position: absolute;
+  font-style: italic;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+/* unvisited link */
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: yellowgreen;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: white;
+  text-decoration: none;
+}
+

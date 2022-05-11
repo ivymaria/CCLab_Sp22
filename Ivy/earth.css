@@ -5,6 +5,7 @@ html, body {
 }
 canvas {
   display: block;
+  z-index: 10;
 }
 
 #my-earth {
@@ -19,4 +20,51 @@ button {
   width: 100px;
   height: 50px;
   border: 0px;
+  
+  z-index: 100;
+  
+  position: absolute;
+  right: 5%;
+  top: 5%;
+
+  color: white;
+  font-size: 20px;
+}
+/* unvisited link */
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: yellowgreen;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: white;
+  text-decoration: none;
+}
+
+
+.image {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+#img1 {
+  left: 100px;
+  top: 1000px;
+}
+#img2 {
+  left: 100px;
+  top: 1000px;
 }
