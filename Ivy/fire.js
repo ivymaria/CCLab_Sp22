@@ -8,7 +8,7 @@ function setup() {
   angleMode(DEGREES);
 
   angle = 0;
-  angleVel = 60.5; // ***
+  angleVel = 60.3; // ***
 }
 
 function draw() {
@@ -44,7 +44,7 @@ function draw() {
     push();
     blendMode(ADD);
     translate(575, 600);
-    rotate(angle * 1.5);
+    rotate(angle);
     stroke(150, 50, 5);
     //stroke("FireBrick");
     noFill();
@@ -54,7 +54,7 @@ function draw() {
     push();
     blendMode(ADD);
     translate(100, 100);
-    rotate(angle * 1.5);
+    rotate(angle);
     stroke(150, 50, 5);
     //stroke("FireBrick");
     noFill();
@@ -64,7 +64,7 @@ function draw() {
     push();
     blendMode(ADD);
     translate(575, 100);
-    rotate(angle * 1.5);
+    rotate(angle);
     stroke(150, 50, 5);
     //stroke("FireBrick");
     noFill();
