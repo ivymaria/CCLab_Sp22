@@ -19,7 +19,7 @@ function draw() {
   angle = angleVel * increment; //angle += angleVel;
 
   fill(0, 0, 0)
-  ellipse(10,10)
+  ellipse(5,5)
 
   if (mouseIsPressed) {
     increment++;
