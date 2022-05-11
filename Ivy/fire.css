@@ -56,3 +56,51 @@ a:active {
   color: white;
   text-decoration: none;
 }
+
+.image {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+#img1 {
+  left: 500px;
+  top: 1300px;
+}
+#img2 {
+  right: 100px;
+  top: 4000px;
+}
+
+#img3 {
+  left: 1000px;
+  top: 1300px;
+}
+
+#img4 {
+  left: 400px;
+  top: 3600px;
+}
+
+#img5 {
+  left: 300px;
+  top: 2100px;
+}
+
+#img6 {
+  left: 900px;
+  top: 3000px;
+}
+
+#img7 {
+  left: 900px;
+  top: 2200px;
+}
+
+#img8 {
+  left: 400px;
+  top: 2950px;
+  height: 400px
+}
+
+
+
