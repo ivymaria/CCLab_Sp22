@@ -1,7 +1,7 @@
 let increment = 0;
 
 function setup() {
-  let canvas = createCanvas(500, 500);
+  let canvas = createCanvas(700, 700);
   canvas.parent("my-fire");
   background("Black");
   rectMode(CENTER);
@@ -23,7 +23,7 @@ function draw() {
 
     push();
     blendMode(ADD);
-    translate(100, 400);
+    translate(100, 600);
     rotate(angle);
     //stroke("OrangeRed");
     stroke(150, 50, 5);
@@ -33,7 +33,7 @@ function draw() {
 
     push();
     blendMode(ADD);
-    translate(250, 250);
+    translate(350, 350);
     rotate(angle * 3.5);
     stroke(255, 50, 5);
     //stroke("orange");
@@ -43,7 +43,7 @@ function draw() {
 
     push();
     blendMode(ADD);
-    translate(375, 400);
+    translate(575, 600);
     rotate(angle * 1.5);
     stroke(150, 50, 5);
     //stroke("FireBrick");
@@ -63,7 +63,7 @@ function draw() {
 
     push();
     blendMode(ADD);
-    translate(375, 100);
+    translate(575, 100);
     rotate(angle * 1.5);
     stroke(150, 50, 5);
     //stroke("FireBrick");
